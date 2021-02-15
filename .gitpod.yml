@@ -1,4 +1,4 @@
-image: patrickmckernin/refactoringmsmqueries2
+image: jelaniwoods/appdev2021-refactoring-msm-queries-2
 
 tasks:
   - init: bin/setup
