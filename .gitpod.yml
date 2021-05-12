@@ -1,4 +1,4 @@
-image: jelaniwoods/appdev2021-refactoring-msm-queries-2
+image: jelaniwoods/appdev2021-refactoring-msm-queries-2@sha256:5ee2a55695325a0bc7ae6b3fd46a944233f34b393574e0a04943660becda2942
 
 tasks:
   - init: bin/setup
