@@ -14,9 +14,9 @@
 #
 class Movie < ApplicationRecord
   def director
-    foreign_key = self.director_id
+    key = self.director_id
 
-    matching_set = Director.where({ :id => foreign_key })
+    matching_set = Director.where({ :id => key })
 
     result = matching_set.at(0)
 

@@ -11,9 +11,9 @@
 #
 class Character < ApplicationRecord
   def movie
-    foreign_key = self.movie_id
+    key = self.movie_id
 
-    matching_set = Movie.where({ :id => foreign_key })
+    matching_set = Movie.where({ :id => key })
 
     result = matching_set.at(0)
 

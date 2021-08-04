@@ -12,9 +12,9 @@
 #
 class Actor < ApplicationRecord
   def characters
-    foreign_key = self.id
+    key = self.id
 
-    matching_set = Character.where({ :actor_id => foreign_key })
+    matching_set = Character.where({ :actor_id => key })
 
     return matching_set
   end

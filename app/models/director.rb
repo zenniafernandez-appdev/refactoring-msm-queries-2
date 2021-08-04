@@ -12,9 +12,9 @@
 #
 class Director < ApplicationRecord
   def filmography
-    foreign_key = self.id
+    key = self.id
 
-    matching_set = Movie.where({ :director_id => foreign_key })
+    matching_set = Movie.where({ :director_id => key })
 
     return matching_set
   end
