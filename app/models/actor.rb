@@ -12,27 +12,23 @@
 #
 class Actor < ApplicationRecord
   def characters
-    my_id = self.id
+    key = self.id
 
-    matching_characters = Character.where({ :actor_id => my_id })
+    the_many = Character.where({ :actor_id => key })
 
-    return matching_characters
+    return the_many
   end
 
   def filmography
-    array_of_movie_ids = Array.new
+    the_many = Array.new
 
-    my_characters = self.characters
+    self.characters.each do |joining_record|
+      destination_record = joining_record.movie
 
-    my_characters.each do |a_character|
-      the_movie = a_character.movie
-
-      array_of_movie_ids.push(the_movie.id)
+      the_many.push(destination_record)
     end
 
-    matching_movies = Movie.where({ :id => array_of_movie_ids })
-
-    return matching_movies
+    return the_many
   end
 
 end

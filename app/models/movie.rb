@@ -14,12 +14,12 @@
 #
 class Movie < ApplicationRecord
   def director
-    my_director_id = self.director_id
+    key = self.director_id
 
-    matching_directors = Director.where({ :id => my_director_id })
+    matching_set = Director.where({ :id => key })
 
-    the_director = matching_directors.at(0)
+    the_one = matching_set.at(0)
 
-    return the_director
+    return the_one
   end
 end
