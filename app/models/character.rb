@@ -11,12 +11,12 @@
 #
 class Character < ApplicationRecord
   def movie
-    my_movie_id = self.movie_id
+    foreign_key = self.movie_id
 
-    matching_movies = Movie.where({ :id => my_movie_id })
+    matching_set = Movie.where({ :id => foreign_key })
 
-    the_movie = matching_movies.at(0)
+    result = matching_set.at(0)
 
-    return the_movie
+    return result
   end
 end
