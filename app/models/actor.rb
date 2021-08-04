@@ -14,19 +14,19 @@ class Actor < ApplicationRecord
   def characters
     key = self.id
 
-    matching_set = Character.where({ :actor_id => key })
+    the_many = Character.where({ :actor_id => key })
 
-    return matching_set
+    return the_many
   end
 
   def filmography
-    results_array = Array.new
+    the_many = Array.new
 
     self.characters.each do |joining_record|
-      results_array.push(joining_record.movie)
+      the_many.push(joining_record.movie)
     end
 
-    return results_array
+    return the_many
   end
 
 end

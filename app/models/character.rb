@@ -15,8 +15,8 @@ class Character < ApplicationRecord
 
     matching_set = Movie.where({ :id => key })
 
-    result = matching_set.at(0)
+    the_one = matching_set.at(0)
 
-    return result
+    return the_one
   end
 end
