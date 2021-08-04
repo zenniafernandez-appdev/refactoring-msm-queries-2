@@ -23,7 +23,9 @@ class Actor < ApplicationRecord
     the_many = Array.new
 
     self.characters.each do |joining_record|
-      the_many.push(joining_record.movie)
+      destination_record = joining_record.movie
+
+      the_many.push(destination_record)
     end
 
     return the_many
