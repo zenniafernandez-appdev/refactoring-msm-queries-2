@@ -1,14 +1,16 @@
-image: jelaniwoods/appdev2021-refactoring-msm-queries-2@sha256:5c35780d6e6e64a5adf151abb8ca4adbdd1a90a00982e4555daf247040c546e2
+image: patrickmckernin/refactoring-msm-again-2022-winter
+
 tasks:
-  - command: bundle install
   - init: bin/setup
 ports:
   - port: 3000
     onOpen: open-preview
-    visibility: public
+  - port: 9515
+    onOpen: ignore
+
 
 vscode:
   extensions:
-    - shd101wyy.markdown-preview-enhanced
-    - wingrunr21.vscode-ruby
- 
+    - vortizhe.simple-ruby-erb
+    - mbessey.vscode-rufo
+    - aliariff.vscode-erb-beautify
