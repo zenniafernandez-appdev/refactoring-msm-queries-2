@@ -13,13 +13,42 @@
 #  director_id :integer
 #
 class Movie < ApplicationRecord
-  def director
-    key = self.director_id
+  # Director has many -> Movies
+  # Actor has many -> Characters
+  # Movie has many -> Characters
+  # These are three one to many (direct associations) in MSM -- supported by foreign key column in one of these tables
+  # Many to many (indirect relationship) -- between Actors and Movies because you need to go through the joining table of Characters
+  # Since there are 6 direct associations, we should define 6 association accessor methods to support the three one to manys
 
-    matching_set = Director.where({ :id => key })
+  # Director#filmography
+  # Movie#director
 
-    the_one = matching_set.at(0)
+  # Actor#characters
+  # Character#actor
 
-    return the_one
-  end
+  # Movie#characters
+  # Character#movie
+
+  # has_many(:characters)
+  has_many(:characters, { :class_name => "Character", :foreign_key => "movie_id" })
+
+  # belongs_to(:director)
+  belongs_to(:director, { :class_name => "Director", :foreign_key => "director_id" })
+
+
+  # def characters
+  #   my_id = self.id
+
+  #   return Character.where({ :movie_id => my_id })
+  # end
+
+  # def director
+  #   key = self.director_id
+
+  #   matching_set = Director.where({ :id => key })
+
+  #   the_one = matching_set.at(0)
+
+  #   return the_one
+  # end
 end
